@@ -26,12 +26,16 @@ export const BookingForm = () => {
     message: "",
   });
 
-  const update = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
-    setForm({ ...form, [k]: e.target.value });
+  const update =
+    (k: keyof typeof form) =>
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+      setForm({ ...form, [k]: e.target.value });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
     const result = schema.safeParse(form);
+
     if (!result.success) {
       toast({
         title: "Please check your details",
@@ -40,40 +44,136 @@ export const BookingForm = () => {
       });
       return;
     }
-    const text = `*New Catering Inquiry — Benams*%0A%0A*Name:* ${encodeURIComponent(form.name)}%0A*Phone:* ${encodeURIComponent(form.phone)}%0A*Email:* ${encodeURIComponent(form.email)}%0A*Event Type:* ${encodeURIComponent(form.eventType)}%0A*Date:* ${encodeURIComponent(form.date)}%0A*Message:* ${encodeURIComponent(form.message || "—")}`;
-    window.open(`https://wa.me/254746902651?text=${text}`, "_blank", "noopener,noreferrer");
-    toast({ title: "Opening WhatsApp", description: "Send the prefilled message to confirm your booking." });
+
+    // 📢 PREMIUM POSTER-STYLE WHATSAPP MESSAGE
+    const text = `✨ *BENAMS CATERING - BOOKING INQUIRY* ✨
+
+🙏 *Greetings & Welcome!*
+
+Thank you for reaching out to *Benams Catering*.  
+We are delighted to receive your booking request and are excited to serve you with excellence, elegance, and unforgettable taste 🍽️
+
+━━━━━━━━━━━━━━━━━━━━
+👤 *CLIENT INFORMATION*
+━━━━━━━━━━━━━━━━━━━━
+
+• Full Name: ${form.name}
+• Phone Number: ${form.phone}
+• Email Address: ${form.email}
+
+━━━━━━━━━━━━━━━━━━━━
+🎉 *EVENT DETAILS*
+━━━━━━━━━━━━━━━━━━━━
+
+• Event Type: ${form.eventType}
+• Event Date: ${form.date}
+
+━━━━━━━━━━━━━━━━━━━━
+📝 *ADDITIONAL MESSAGE*
+━━━━━━━━━━━━━━━━━━━━
+
+${form.message || "No additional details provided"}
+
+━━━━━━━━━━━━━━━━━━━━
+💛 *BENAMS CATERING*
+“Delicious Moments, Perfectly Served”
+━━━━━━━━━━━━━━━━━━━━
+
+📌 We will review your request and respond shortly with availability and further details.
+
+🙏 Thank you for choosing us!`;
+
+    const encodedText = encodeURIComponent(text);
+
+    window.open(
+      `https://wa.me/25474431893?text=${encodedText}`,
+      "_blank",
+      "noopener,noreferrer"
+    );
+
+    toast({
+      title: "Opening WhatsApp",
+      description: "Your booking message is ready to send.",
+    });
   };
 
   return (
     <form onSubmit={handleSubmit} className="grid sm:grid-cols-2 gap-5">
       <div className="space-y-2">
         <Label htmlFor="name">Full Name</Label>
-        <Input id="name" value={form.name} onChange={update("name")} placeholder="Edward Mugao" maxLength={80} />
+        <Input
+          id="name"
+          value={form.name}
+          onChange={update("name")}
+          placeholder="Your full name"
+          maxLength={80}
+        />
       </div>
+
       <div className="space-y-2">
         <Label htmlFor="phone">Phone Number</Label>
-        <Input id="phone" value={form.phone} onChange={update("phone")} placeholder="07XX XXX XXX" maxLength={20} />
+        <Input
+          id="phone"
+          value={form.phone}
+          onChange={update("phone")}
+          placeholder="07XX XXX XXX"
+          maxLength={20}
+        />
       </div>
+
       <div className="space-y-2">
         <Label htmlFor="email">Email</Label>
-        <Input id="email" type="email" value={form.email} onChange={update("email")} placeholder="you@email.com" maxLength={120} />
+        <Input
+          id="email"
+          type="email"
+          value={form.email}
+          onChange={update("email")}
+          placeholder="you@email.com"
+          maxLength={120}
+        />
       </div>
+
       <div className="space-y-2">
         <Label htmlFor="eventType">Event Type</Label>
-        <Input id="eventType" value={form.eventType} onChange={update("eventType")} placeholder="Wedding, Corporate…" maxLength={60} />
+        <Input
+          id="eventType"
+          value={form.eventType}
+          onChange={update("eventType")}
+          placeholder="Wedding, Birthday, Corporate..."
+          maxLength={60}
+        />
       </div>
+
       <div className="space-y-2 sm:col-span-2">
         <Label htmlFor="date">Event Date</Label>
-        <Input id="date" type="date" value={form.date} onChange={update("date")} />
+        <Input
+          id="date"
+          type="date"
+          value={form.date}
+          onChange={update("date")}
+        />
       </div>
+
       <div className="space-y-2 sm:col-span-2">
         <Label htmlFor="message">Message</Label>
-        <Textarea id="message" value={form.message} onChange={update("message")} rows={4} maxLength={800} placeholder="Tell us about your event, guest count, menu preferences…" />
+        <Textarea
+          id="message"
+          value={form.message}
+          onChange={update("message")}
+          rows={4}
+          maxLength={800}
+          placeholder="Tell us about your event, guest count, menu preferences..."
+        />
       </div>
-      <Button type="submit" variant="whatsapp" size="xl" className="sm:col-span-2">
+
+      <Button
+        type="submit"
+        variant="whatsapp"
+        size="xl"
+        className="sm:col-span-2 flex items-center gap-2"
+      >
         <MessageCircle className="w-5 h-5" />
-        Send via WhatsApp
+        Send Booking via WhatsApp
       </Button>
     </form>
   );
