@@ -46,42 +46,53 @@ export const BookingForm = () => {
     }
 
     // 📢 PREMIUM POSTER-STYLE WHATSAPP MESSAGE
-    const text = `✨ *BENAMS CATERING - BOOKING INQUIRY* ✨
+    const text = `🌟✨ *BENAMS CATERING & EVENTS* ✨🌟
 
-🙏 *Greetings & Welcome!*
+══════════════════════════
+🍽️ *DELIGHTFUL GREETINGS*
+══════════════════════════
 
-Thank you for reaching out to *Benams Catering*.  
-We are delighted to receive your booking request and are excited to serve you with excellence, elegance, and unforgettable taste 🍽️
+Hello and warm greetings from *Benams Catering* 👋
 
-━━━━━━━━━━━━━━━━━━━━
-👤 *CLIENT INFORMATION*
-━━━━━━━━━━━━━━━━━━━━
+We are truly honored to receive your booking request.
+At Benams Catering, we don’t just serve food — we create unforgettable moments, beautifully crafted experiences, and flavors that tell a story 💛
 
-• Full Name: ${form.name}
-• Phone Number: ${form.phone}
-• Email Address: ${form.email}
+══════════════════════════
+📌 *YOUR BOOKING DETAILS*
+══════════════════════════
 
-━━━━━━━━━━━━━━━━━━━━
-🎉 *EVENT DETAILS*
-━━━━━━━━━━━━━━━━━━━━
+👤 *Name:* ${form.name}
+📞 *Phone:* ${form.phone}
+📧 *Email:* ${form.email}
 
-• Event Type: ${form.eventType}
-• Event Date: ${form.date}
+🎉 *Event Type:* ${form.eventType}
+📅 *Event Date:* ${form.date}
 
-━━━━━━━━━━━━━━━━━━━━
-📝 *ADDITIONAL MESSAGE*
-━━━━━━━━━━━━━━━━━━━━
+══════════════════════════
+📝 *EVENT MESSAGE*
+══════════════════════════
 
 ${form.message || "No additional details provided"}
 
-━━━━━━━━━━━━━━━━━━━━
+══════════════════════════
+💫 *OUR PROMISE TO YOU*
+══════════════════════════
+
+✔ Fresh & delicious meals  
+✔ Professional catering service  
+✔ Elegant presentation  
+✔ On-time delivery & setup  
+✔ Memorable experience for your guests  
+
+══════════════════════════
 💛 *BENAMS CATERING*
-“Delicious Moments, Perfectly Served”
-━━━━━━━━━━━━━━━━━━━━
+“Where Taste Meets Elegance”
+══════════════════════════
 
-📌 We will review your request and respond shortly with availability and further details.
+🙏 Thank you for trusting us with your special occasion.
+We will respond shortly to confirm availability and details.
 
-🙏 Thank you for choosing us!`;
+📲 We look forward to serving you!`;
 
     const encodedText = encodeURIComponent(text);
 
