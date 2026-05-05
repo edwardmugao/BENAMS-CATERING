@@ -88,7 +88,7 @@ We will respond shortly to confirm availability and details.
     const encodedText = encodeURIComponent(text);
 
     window.open(
-      `https://wa.me/254746902651?text=${encodedText}`,
+      `https://wa.me/254724431893?text=${encodedText}`,
       "_blank",
       "noopener,noreferrer"
     );

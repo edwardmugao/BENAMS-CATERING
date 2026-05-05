@@ -273,6 +273,20 @@ const Index = () => {
             <div className="mt-8 flex flex-wrap gap-4">
               <Button asChild variant="hero" size="lg"><a href="tel:+254724431893"><Phone className="w-4 h-4" /> 0724 431 893</a></Button>
               <Button asChild variant="outlineGold" size="lg"><a href="#booking">Book a Tasting</a></Button>
+              <Button
+  asChild
+  variant="outlineGold"
+  size="lg"
+  className="sm:col-span-2"
+>
+  <a
+    href="https://mail.google.com/mail/?view=cm&fs=1&to=benamscatering@gmail.com"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    📧 Send Email Inquiry
+  </a>
+</Button>
             </div>
           </div>
         </div>

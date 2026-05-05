@@ -1,7 +1,7 @@
 import { MessageCircle } from "lucide-react";
 
 export const WhatsAppFloat = () => {
-  const url = "https://wa.me/254746902651?text=" + encodeURIComponent("Hello Benams Catering, I'd like to inquire about your services. Thankyou as i wait your feedback");
+  const url = "https://wa.me/254724431893?text=" + encodeURIComponent("Hello Benams Catering, I'd like to inquire about your services. Thankyou as i wait your feedback");
   return (
     <a
       href={url}
