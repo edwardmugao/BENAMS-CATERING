@@ -49,15 +49,6 @@ export const BookingForm = () => {
     const text = `🌟✨ *BENAMS CATERING & EVENTS* ✨🌟
 
 ══════════════════════════
-🍽️ *DELIGHTFUL GREETINGS*
-══════════════════════════
-
-Hello and warm greetings from *Benams Catering* 👋
-
-We are truly honored to receive your booking request.
-At Benams Catering, we don’t just serve food — we create unforgettable moments, beautifully crafted experiences, and flavors that tell a story 💛
-
-══════════════════════════
 📌 *YOUR BOOKING DETAILS*
 ══════════════════════════
 
